@@ -18,14 +18,29 @@
   <form method="POST" action="blarf.php">
     <div class="container">
       <br/>
-      <div class="sig1"></div>
-      <div class="sig2"></div>
+      <label>Lone Sig</label>
+      <div class="sig3"></div>
+      <label>Grouped Sigs</label>
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="sig1"></div>
+        </div>
+        <div class="col-sm-4">
+          <div class="sig2"></div>
+        </div>
+        <div class="col-sm-4">
+          <div class="sig2"></div>
+        </div>
+      </div>
+      <button class="btn btn-success btn-lg pull-right" type="submit">Submit</button>
     </div>
-    <button type="submit">submit</button>
   </form>
 
   <script>
     $( document ).ready(function() {
+      $('.sig3').savviSig({
+        group:'alone'
+      });
       $('.sig2').savviSig({
         group:'choopie'
       });
