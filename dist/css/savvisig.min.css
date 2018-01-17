@@ -1,0 +1,69 @@
+/* Signature Stuff */
+.sf-signature-modal .modal-body {
+  color: darkblue;
+  background-color: white;
+  padding: 15px;
+  max-size: 824px; }
+  .sf-signature-modal .modal-body .sf-sign-area {
+    touch-action: none;
+    -ms-touch-action: none; }
+    .sf-signature-modal .modal-body .sf-sign-area * {
+      touch-action: none;
+      -ms-touch-action: none; }
+
+.sf-signature input {
+  position: absolute; }
+
+.sf-signature .sf-sig-wrapper {
+  position: relative; }
+  .sf-signature .sf-sig-wrapper .sf-sig-panel {
+    display: none;
+    position: absolute;
+    bottom: 0px;
+    right: 0px; }
+    .sf-signature .sf-sig-wrapper .sf-sig-panel button {
+      margin-bottom: 10px;
+      margin-right: 10px; }
+  .sf-signature .sf-sig-wrapper .sf-sig-note {
+    z-index: 10;
+    position: absolute;
+    width: 160px;
+    height: 40px;
+    background: #ffe030;
+    right: -10px;
+    top: 50%;
+    text-align: center;
+    line-height: 40px;
+    margin-top: -20px; }
+    .sf-signature .sf-sig-wrapper .sf-sig-note:before {
+      content: "";
+      position: absolute;
+      right: 100%;
+      top: 0px;
+      width: 0;
+      height: 0;
+      border-top: 20px solid transparent;
+      border-right: 20px solid #ffe030;
+      border-bottom: 20px solid transparent; }
+  .sf-signature .sf-sig-wrapper .form-control {
+    height: 300px;
+    position: relative;
+    text-align: center; }
+    .sf-signature .sf-sig-wrapper .form-control .signature-image {
+      max-width: 100%;
+      max-height: 300px;
+      position: absolute;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+      left: 0;
+      right: 0;
+      margin: auto;
+      text-align: center; }
+
+.has-feedback .form-control-feedback {
+  display: none; }
+
+.has-feedback.has-success .form-control-feedback, .has-feedback.has-error .form-control-feedback {
+  display: block; }

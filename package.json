@@ -1,0 +1,26 @@
+{
+  "name": "savvisig-js",
+  "version": "1.2.3",
+  "description": "The Signature Tool for Sweaty Big Men 🍆",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-js": "uglifyjs src/js/*.js -o dist/js/savvisig.min.js",
+    "build-css": "node-sass --include-path scss src/scss/savvisig.scss  dist/css/savvisig.min.css",
+    "build": "npm run build-js && npm run build-css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@bitbucket.org:savvior/savvisig-js.git"
+  },
+  "author": "Uncle Trevor",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.2.1"
+  },
+  "devDependencies": {
+    "uglify-js": "^3.3.7",
+    "node-sass": "^4.7.2"
+  }
+}
