@@ -83,22 +83,29 @@ SavviSig.prototype.buildSignatureField = function(element,options){
   if (self.options.required){
     required = 'required="required"';
   }
-  m += '<div data-sig-id="sig-'+self.uid+'" class="form-group-lg form-group has-feedback sf-signature" data-group="'+groupName+'">';
-  m += '<span class="glyphicon form-control-feedback glyphicon-ok" aria-hidden="true">';
-  m += '</span>';
-  m += '<input '+required+' id="sf-data-'+self.uid+'" name="sf-data-'+self.uid+'" class="form-control sf-sig-data sf-field" type="text">';
-  m += '<input '+required+' id="sf-data-'+self.uid+'" name="sf-data-'+self.uid+'" class="form-control sf-sig-date sf-field" type="text">';
-  m += '<div class="sf-sig-wrapper" data-action="sign">';
-  m += '<div class="form-control">';
-  m += '<img class="signature-image" src="" />';
-  m += '<div class="sf-sig-note">Sign Here</div>';
-  m += '</div>';
-  m += '<div class="sf-sig-panel">';
-  m += '<button type="button" class="sf-sig-edit btn btn-default btn-lg">Edit</button>';
-  m += '</div>';
-  m += '</div>';
-  m += '</div>';
-  $(element).html(m);
+  /* If we're using formbuilder */
+  if ($(element).attr('data-type') == 'signature'){
+    $(element).attr('data-sig-id',self.uid);
+    $(element).attr('data-group',self.uid);
+    $(element).addClass('sf-signature');
+  } else {
+    m += '<div data-sig-id="sig-'+self.uid+'" class="form-group-lg form-group has-feedback sf-signature" data-group="'+groupName+'">';
+    m += '<span class="glyphicon form-control-feedback glyphicon-ok" aria-hidden="true">';
+    m += '</span>';
+    m += '<input '+required+' id="sf-data-'+self.uid+'" name="sf-data-'+self.uid+'" class="form-control sf-sig-data sf-field" type="text">';
+    m += '<input '+required+' id="sf-data-'+self.uid+'" name="sf-data-'+self.uid+'" class="form-control sf-sig-date sf-field" type="text">';
+    m += '<div class="sf-sig-wrapper" data-action="sign">';
+    m += '<div class="form-control">';
+    m += '<img class="signature-image" src="" />';
+    m += '<div class="sf-sig-note">Sign Here</div>';
+    m += '</div>';
+    m += '<div class="sf-sig-panel">';
+    m += '<button type="button" class="sf-sig-edit btn btn-default btn-lg">Edit</button>';
+    m += '</div>';
+    m += '</div>';
+    m += '</div>';
+    $(element).html(m);
+  }
 };
 
 SavviSig.prototype.bindSignatureField = function(element,options){
