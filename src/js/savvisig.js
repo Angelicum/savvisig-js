@@ -63,8 +63,8 @@ SavviSig.prototype.buildSignatureModal = function(element,options){
   m += '<div class="sf-sign-area"></div>'
   m += '</div>';
   m += '<div class="modal-footer">';
-  m += '<button type="button" class="btn btn-default" data-dismiss="modal"><i class="glyphicon glyphicon-remove"></i> Close</button>';
-  m += '<button type="button" data-id="sf-button-sign" class="btn btn-default"><i class="glyphicon glyphicon-pencil"></i> Sign</button>';
+  m += '<button type="button" class="btn btn-default btn-lg" data-dismiss="modal"><i class="glyphicon glyphicon-remove"></i> Close</button>';
+  m += '<button type="button" data-id="sf-button-sign" class="btn btn-default btn-lg"><i class="glyphicon glyphicon-pencil"></i> Sign</button>';
   m += '</div>';
   m += '</form>';
   m += '</div>';
@@ -86,7 +86,7 @@ SavviSig.prototype.buildSignatureField = function(element,options){
   /* If we're using formbuilder */
   if ($(element).attr('data-type') == 'signature'){
     $(element).attr('data-sig-id',self.uid);
-    $(element).attr('data-group',self.uid);
+    $(element).attr('data-group',groupName);
     $(element).addClass('sf-signature');
   } else {
     m += '<div data-sig-id="sig-'+self.uid+'" class="form-group-lg form-group has-feedback sf-signature" data-group="'+groupName+'">';
@@ -111,11 +111,14 @@ SavviSig.prototype.buildSignatureField = function(element,options){
 SavviSig.prototype.bindSignatureField = function(element,options){
   var self = this;
   var $modalSig = $('[data-id="sf-modal-sig"]');
-  var $holderSig = $(element).find('[data-sig-id="sig-'+self.uid+'"]') || $(element);
+  var $holderSig = $(element).find('[data-sig-id="sig-'+self.uid+'"]');
+  if ($(element).attr('data-type') == 'signature'){
+    $holderSig = $(element);
+  }
   var $signingArea = $modalSig.find('.sf-sign-area');
   var $sigData = $holderSig.find('.sf-sig-data');
   var $sigDate = $holderSig.find('.sf-sig-date');
-
+  var $sigPanel = $holderSig.find('.sf-sig-panel');
   /* We do not want people typing stuff in these, but we
      still want them to retain the ability to be focused by
      the validator */
@@ -149,6 +152,13 @@ SavviSig.prototype.bindSignatureField = function(element,options){
     $sigData.focus(); //For validator
 
   });
+
+  self.resetGroupedSignatures($holderSig);
+
+  /* If sig is prepopulated, show edit button */
+  if ($sigData.val() !== ''){
+    $sigPanel.fadeIn('fast');
+  }
 };
 /* If the sigs are for the same person, get the data of the latest sig */
 SavviSig.prototype.getLatestSig = function($holderSig){
@@ -223,6 +233,9 @@ SavviSig.prototype.openModal = function(element,options){
 SavviSig.prototype.updateSignature = function(element,options,dataImage,dataDate){
   var self = this;
   var $holderSig = $(element).find('[data-sig-id="sig-'+self.uid+'"]');
+  if ($(element).attr('data-type') == 'signature'){
+    $holderSig = $(element);
+  }
   var $sigImage = $holderSig.find('.signature-image');
   var $sigData = $holderSig.find('.sf-sig-data');
   var $sigDate = $holderSig.find('.sf-sig-date');
@@ -238,6 +251,11 @@ SavviSig.prototype.updateSignature = function(element,options,dataImage,dataDate
   $sigPanel.fadeIn('fast');
   $sigData.trigger('blur');
 
+  self.resetGroupedSignatures($holderSig);
+};
+
+SavviSig.prototype.resetGroupedSignatures = function($holderSig){
+  var $sigData = $holderSig.find('.sf-sig-data');
   /* Reset Grouped signatures */
   $('[data-sig-id]').each(function(){
     var $rSig = $(this);
@@ -250,7 +268,7 @@ SavviSig.prototype.updateSignature = function(element,options,dataImage,dataDate
       }
     }
   });
-};
+}
 
 SavviSig.prototype.bindSignatureModal = function(element,options){
   var self = this;
