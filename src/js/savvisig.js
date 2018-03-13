@@ -111,7 +111,7 @@ SavviSig.prototype.buildSignatureField = function(element,options){
 SavviSig.prototype.bindSignatureField = function(element,options){
   var self = this;
   var $modalSig = $('[data-id="sf-modal-sig"]');
-  var $holderSig = $(element).find('[data-sig-id="sig-'+self.uid+'"]');
+  var $holderSig = $(element).find('[data-sig-id="sig-'+self.uid+'"]') || $(element);
   var $signingArea = $modalSig.find('.sf-sign-area');
   var $sigData = $holderSig.find('.sf-sig-data');
   var $sigDate = $holderSig.find('.sf-sig-date');
