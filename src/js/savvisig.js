@@ -133,12 +133,17 @@ SavviSig.prototype.bindSignatureField = function(element,options){
   self.updateSignature(element,options,options.dataImage,options.dataDate);
 
   $holderSig.find('.sf-sig-edit').on('click tap', function(){
+    if ($sigData.is(":disabled") || $sigDate.is(":disabled")){
+      return false;
+    }
     self.openModal(element,options);
     $sigData.focus(); //For validator
   });
 
   $holderSig.find('[data-action="sign"]').on('click tap',function(){
-
+    if ($sigData.is(":disabled") || $sigDate.is(":disabled")){
+      return false;
+    }
     var latestSigData = self.getLatestSig($holderSig);
 
     if (latestSigData == '' || (latestSigData == $sigData.val())){
@@ -147,6 +152,7 @@ SavviSig.prototype.bindSignatureField = function(element,options){
     }else{
       /* Signed! */
       self.updateSignature(element,options,latestSigData,(new Date()).toISOString());
+      $sigData.trigger('change');
       $sigData.trigger('blur');
     }
     $sigData.focus(); //For validator
@@ -249,6 +255,7 @@ SavviSig.prototype.updateSignature = function(element,options,dataImage,dataDate
   $sigData.val(dataImage);
   $sigNote.fadeOut('fast');
   $sigPanel.fadeIn('fast');
+  $sigData.trigger('change');
   $sigData.trigger('blur');
 
   self.resetGroupedSignatures($holderSig);
