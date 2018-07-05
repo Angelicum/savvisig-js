@@ -271,6 +271,8 @@ SavviSig.prototype.resetGroupedSignatures = function($holderSig){
         if ($rSig.find('.sf-sig-data').val() !== $sigData.val()){
           $rSig.find('.sf-sig-note').fadeIn('fast');
           $rSig.find('.sf-sig-date').val(''); //clear the date so they must sign again for an updated sig.
+          $rSig.find('.sf-sig-data').val(''); //clear the date so they must sign again for an updated sig.
+          $rSig.find('img').attr('src', '');
         }
       }
     }
