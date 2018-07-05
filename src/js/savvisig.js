@@ -159,7 +159,7 @@ SavviSig.prototype.bindSignatureField = function(element,options){
 
   });
 
-  self.resetGroupedSignatures($holderSig);
+  //self.resetGroupedSignatures($holderSig);
 
   /* If sig is prepopulated, show edit button */
   if ($sigData.val() !== ''){
