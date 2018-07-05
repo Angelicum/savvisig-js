@@ -1,5 +1,7 @@
 # savvisig-js
 
+
+### Bind Signature Field
 ```javascript
 $('.signature').savviSig({
   required:false,
@@ -8,5 +10,12 @@ $('.signature').savviSig({
   dataDate: false,
   group: false,
   required: true
+});
+```
+
+### Global Events
+```javascript
+$(document).on("signaturesUpdated",function(){
+    /* Do stuff */
 });
 ```

@@ -275,6 +275,7 @@ SavviSig.prototype.resetGroupedSignatures = function($holderSig){
       }
     }
   });
+  $(document).trigger('signaturesUpdated');
 }
 
 SavviSig.prototype.bindSignatureModal = function(element,options){
