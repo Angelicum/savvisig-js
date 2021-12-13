@@ -4,10 +4,6 @@
   "description": "The Signature Tool for Sweaty Big Men 🍆",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build-js": "uglifyjs src/js/*.js -o dist/js/savvisig.min.js",
-    "build-css": "node-sass --include-path scss src/scss/savvisig.scss  dist/css/savvisig.min.css",
-    "build": "npm run build-js && npm run build-css"
   },
   "repository": {
     "type": "git",
@@ -20,7 +16,9 @@
     "jquery": "^3.2.1"
   },
   "devDependencies": {
-    "uglify-js": "^3.3.7",
-    "node-sass": "^4.7.2"
+    "laravel-mix": "^6.0.39",
+    "resolve-url-loader": "^4.0.0",
+    "sass": "^1.45.0",
+    "sass-loader": "^12.4.0"
   }
 }
