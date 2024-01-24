@@ -1,10 +1,9 @@
 {
   "name": "savvisig-js",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "The Signature Tool for Sweaty Big Men 🍆",
   "main": "index.js",
-  "scripts": {
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git@bitbucket.org:savvior/savvisig-js.git"

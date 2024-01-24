@@ -93,7 +93,7 @@ SavviSig.prototype.buildSignatureField = function(element,options){
     m += '<span class="glyphicon form-control-feedback glyphicon-ok" aria-hidden="true">';
     m += '</span>';
     m += '<input '+required+' id="sf-data-'+self.uid+'" name="sf-data-'+self.uid+'" class="form-control sf-sig-data sf-field" type="text">';
-    m += '<input '+required+' id="sf-data-'+self.uid+'" name="sf-data-'+self.uid+'" class="form-control sf-sig-date sf-field" type="text">';
+    m += '<input '+required+' id="sf-date-'+self.uid+'" name="sf-date-'+self.uid+'" class="form-control sf-sig-date sf-field" type="text">';
     m += '<div class="sf-sig-wrapper" data-action="sign">';
     m += '<div class="form-control">';
     m += '<img class="signature-image" src="" />';
