@@ -5,8 +5,7 @@ var SavviSig = function(options, element, callback) {
                    id: 'savvi-siggy',
                    dataImage: false,
                    dataDate: false,
-                   group: false,
-                   required: true
+                   group: false
                  };
   self.uid = 0; //keeps track of siggies
   self.options = $.extend(true, defaults, options);

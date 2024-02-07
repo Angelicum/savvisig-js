@@ -19,3 +19,7 @@ $(document).on("signaturesUpdated",function(){
     /* Do stuff */
 });
 ```
+
+### Build
+```npx ix
+```
