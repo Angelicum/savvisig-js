@@ -21,5 +21,5 @@ $(document).on("signaturesUpdated",function(){
 ```
 
 ### Build
-```npx ix
+``` npx mix --production
 ```

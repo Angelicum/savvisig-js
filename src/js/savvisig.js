@@ -55,14 +55,14 @@ SavviSig.prototype.buildSignatureModal = function(element,options){
   m += '<div class="modal-dialog modal-lg">';
   m += '<form class="sf-sig-form modal-content">';
   m += '<div class="modal-header">';
-  m += '<button type="button" class="close" data-dismiss="modal">&times;</button>';
+  m += '<button type="button" class="close" data-bs-dismiss="modal" data-dismiss="modal">&times;</button>';
   m += '<h4 class="modal-title">Edit Signature</h4>';
   m += '</div>';
   m += '<div class="modal-body">';
   m += '<div class="sf-sign-area"></div>'
   m += '</div>';
   m += '<div class="modal-footer">';
-  m += '<button type="button" class="btn btn-default btn-lg" data-dismiss="modal"><i class="glyphicon glyphicon-remove"></i> Close</button>';
+  m += '<button type="button" class="btn btn-default btn-lg" data-bs-dismiss="modal" data-dismiss="modal"><i class="glyphicon glyphicon-remove"></i> Close</button>';
   m += '<button type="button" data-id="sf-button-sign" class="btn btn-default btn-lg"><i class="glyphicon glyphicon-pencil"></i> Sign</button>';
   m += '</div>';
   m += '</form>';
